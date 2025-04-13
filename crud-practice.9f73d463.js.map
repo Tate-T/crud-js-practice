@@ -1,0 +1,1 @@
+{"mappings":"ACAA,QAAQ,GAAG,CAAC","sources":["<anon>","src/main.js"],"sourcesContent":["var $2b6e161c9edcf319$exports = {};\nconsole.log(\"Init\");\n\n\n//# sourceMappingURL=crud-practice.9f73d463.js.map\n","console.log(\"Init\")"],"names":["console","log"],"version":3,"file":"crud-practice.9f73d463.js.map"}

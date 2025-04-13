@@ -1,3 +1,97 @@
-h1 {
-    color: red;
+.main__title {
+    text-align: center;
+    margin-top: 20px;
+    margin-bottom: 20px;
+}
+
+.plants__list {
+    display: flex;
+    gap: 40px;
+    justify-content: center;
+    flex-wrap: wrap;
+}
+
+.plants__item {
+    padding: 20px 30px;
+    width: 300px;
+    background-color: aquamarine;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    gap: 10px;  
+    background-color: #d4d4d4;
+    border-radius: 16px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+}
+
+.plants__title {
+    font-size: 32px;
+}
+
+.plants__image {
+    width: 300px;
+    height: 200px;
+    object-fit: cover;
+}
+
+.plants__price {
+    font-size: 20px;
+}
+
+.plants__btn {
+    display: block;
+    margin-bottom: 20px;
+    margin-right: auto;
+    margin-left: auto;
+    width: 200px;
+    height: 35px;
+    cursor: pointer;
+}
+
+.backdrop {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.4);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.form {
+    width: 500px;
+    height: 650px;
+    background-color: white;
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
+    justify-content: center;
+    align-items: center;
+    position: relative;
+}
+
+.form__close {
+position: absolute;
+top: 20px;
+right: 20px;
+cursor: pointer;
+}
+
+.form__input {
+    width: 400px;
+    height: 35px;
+}
+
+.form__submit {
+    width: 200px;
+    height: 35px;
+    border-radius: 10px;
+    cursor: pointer;
+}
+
+.is-hidden {
+    display: none;
 }

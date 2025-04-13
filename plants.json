@@ -1,0 +1,36 @@
+{
+    "plants": [
+        {
+            "title": "Лілія",
+            "image": "https://interflora.com.ua/img/400x487/51-068.png",
+            "price": 100,
+            "isFavorite": true
+        },
+        {
+            "title": "Троянда",
+            "image": "https://yaskravaklumba.com.ua/image/cache/catalog/rosa/chaino-gibridna/blekmedzhik12-500x500.jpg",
+            "price": 150,
+            "isFavorite": false
+        },{
+            "title": "Дуб",
+            "image": "https://dusha-sada.com.ua/web//media/product/thumb/HcgpY1C4Cb1oF-B7pa5ha7gpH0XIZpahGbXGm0qMOCO4lTK0f1GOJj9L7JjduzgP.jpeg",
+            "price": 500,
+            "isFavorite": true
+        },{
+            "title": "Колючка",
+            "image": "https://cdn.botanichka.ru/wp-content/uploads/2018/06/IMG_20180624_132745.jpg",
+            "price": 1500,
+            "isFavorite": false
+        },{
+            "title": "Кульбаба",
+            "image": "https://agrarii-razom.com.ua/sites/default/files/byr/kulbaba_likarska_5.jpg",
+            "price": 2000,
+            "isFavorite": false
+        },{
+            "title": "Подорожник",
+            "image": "https://images.prom.ua/2749191709_w600_h600_2749191709.jpg",
+            "price": 3000,
+            "isFavorite": true
+        }
+    ]
+}

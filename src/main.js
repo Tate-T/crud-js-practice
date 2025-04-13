@@ -1,1 +1,1 @@
-console.log("Init")
+import "./js/app"

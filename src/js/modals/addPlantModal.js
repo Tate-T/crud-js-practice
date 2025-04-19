@@ -4,3 +4,6 @@ export const openModal = (event)=>
 
 export const closeModal = (event)=>
     document.querySelector(".backdrop").classList.add("is-hidden");
+
+
+

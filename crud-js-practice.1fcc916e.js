@@ -673,13 +673,44 @@ var _app = require("./js/app");
 var _getPlantsAPI = require("./services/getPlantsAPI");
 var _createPlantsList = require("./markup/createPlantsList");
 var _addPlantModal = require("./modals/addPlantModal");
+var _postPlantApi = require("./services/postPlantApi");
+var _deletePlantsAPI = require("./services/deletePlantsAPI");
 (0, _getPlantsAPI.getPlantsApi)().then((plants)=>{
     document.querySelector(".plants__list").innerHTML = (0, _createPlantsList.createPlantsList)(plants);
 });
-document.querySelector(".plants__btn").addEventListener("click", (0, _addPlantModal.openModal)());
-document.querySelector(".form__close").addEventListener("click", (0, _addPlantModal.closeModal)());
+document.querySelector(".plants__btn").addEventListener("click", (0, _addPlantModal.openModal));
+document.querySelector(".form__close").addEventListener("click", (0, _addPlantModal.closeModal));
+document.querySelector("#list").addEventListener("click", (e)=>{
+    if (e.target.dataset.action === "delete") {
+        (0, _deletePlantsAPI.deletePlantsApi)(e.target.closest("li").id);
+        (0, _getPlantsAPI.getPlantsApi)().then((plants)=>{
+            document.querySelector(".plants__list").innerHTML = (0, _createPlantsList.createPlantsList)(plants);
+        });
+    }
+});
+document.querySelector("#form").addEventListener("submit", (event)=>{
+    event.preventDefault();
+    const inputNameValue = event.currentTarget.querySelector("#name").value;
+    const inputImageValue = event.currentTarget.querySelector("#image").value;
+    // const inputPriceValue = Number.parseFloat(event.currentTarget.querySelector("#price"))
+    const inputPriceValue = event.currentTarget.elements.price.value;
+    const flower = {
+        title: inputNameValue,
+        image: inputImageValue,
+        price: inputPriceValue,
+        isFavorite: false
+    };
+    (0, _postPlantApi.postPlantApi)(flower);
+    (0, _getPlantsAPI.getPlantsApi)().then((plants)=>{
+        document.querySelector(".plants__list").innerHTML = (0, _createPlantsList.createPlantsList)(plants);
+    });
+    console.log(flower);
+    event.currentTarget.querySelector("#name").value = "";
+    event.currentTarget.querySelector("#image").value = "";
+    event.currentTarget.elements.price.value = "";
+});
 
-},{"./services/getPlantsAPI":"aVLc4","./markup/createPlantsList":"hva7V","./modals/addPlantModal":"lWl2L"}],"aVLc4":[function(require,module,exports,__globalThis) {
+},{"./services/getPlantsAPI":"aVLc4","./markup/createPlantsList":"hva7V","./modals/addPlantModal":"lWl2L","./services/postPlantApi":"5MMkD","./services/deletePlantsAPI":"dgkJp"}],"aVLc4":[function(require,module,exports,__globalThis) {
 var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
 parcelHelpers.defineInteropFlag(exports);
 parcelHelpers.export(exports, "getPlantsApi", ()=>getPlantsApi);
@@ -721,7 +752,7 @@ exports.export = function(dest, destName, get) {
 var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
 parcelHelpers.defineInteropFlag(exports);
 parcelHelpers.export(exports, "createPlantsList", ()=>createPlantsList);
-const createPlantsList = (plants)=>plants.map((plant)=>`<li class="plants__item">
+const createPlantsList = (plants)=>plants.map((plant)=>`<li id="${plant.id}" class="plants__item">
         <h2 class="plants__title">${plant.title}</h2>
         <img src="${plant.image}" alt="${plant.title}" class="plants__image" />
         <p class="plants__price">${plant.price}</p>
@@ -729,6 +760,7 @@ const createPlantsList = (plants)=>plants.map((plant)=>`<li class="plants__item"
           Do you like this plant?
           <input type="checkbox" class="plants__checkbox" />
         </label>
+        <button type='button' data-action="delete">Delete</button>
       </li>`).join("");
 
 },{"@parcel/transformer-js/src/esmodule-helpers.js":"jnFvT"}],"lWl2L":[function(require,module,exports,__globalThis) {
@@ -739,6 +771,29 @@ parcelHelpers.export(exports, "closeModal", ()=>closeModal);
 const openModal = (event)=>document.querySelector(".backdrop").classList.remove("is-hidden");
 const closeModal = (event)=>document.querySelector(".backdrop").classList.add("is-hidden");
 
+},{"@parcel/transformer-js/src/esmodule-helpers.js":"jnFvT"}],"5MMkD":[function(require,module,exports,__globalThis) {
+var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
+parcelHelpers.defineInteropFlag(exports);
+parcelHelpers.export(exports, "postPlantApi", ()=>postPlantApi);
+const postPlantApi = (newPlant)=>{
+    const options = {
+        method: "POST",
+        body: JSON.stringify(newPlant),
+        headers: {
+            "Content-Type": "application/json; charset=UTF-8"
+        }
+    };
+    return fetch("http://localhost:3000/plants", options).then((response)=>response.json());
+};
+
+},{"@parcel/transformer-js/src/esmodule-helpers.js":"jnFvT"}],"dgkJp":[function(require,module,exports,__globalThis) {
+var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
+parcelHelpers.defineInteropFlag(exports);
+parcelHelpers.export(exports, "deletePlantsApi", ()=>deletePlantsApi);
+const deletePlantsApi = (plantId)=>fetch(`http://localhost:3000/plants/${plantId}`, {
+        method: "DELETE"
+    });
+
 },{"@parcel/transformer-js/src/esmodule-helpers.js":"jnFvT"}]},["iUuJv","fILKw"], "fILKw", "parcelRequirebf16", {})
 
-//# sourceMappingURL=crud-practice.1fcc916e.js.map
+//# sourceMappingURL=crud-js-practice.1fcc916e.js.map

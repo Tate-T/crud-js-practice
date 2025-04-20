@@ -3,8 +3,8 @@
     {
       "title": "Лілія",
       "image": "https://interflora.com.ua/img/400x487/51-068.png",
-      "price": 100,
-      "isFavorite": true,
+      "price": "100",
+      "isFavorite": false,
       "id": "3972"
     },
     {

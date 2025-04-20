@@ -10,6 +10,7 @@ export const createPlantsList = (plants) =>
           Do you like this plant?
           <input type="checkbox" class="plants__checkbox" />
         </label>
+        <button type="button" data-action="update">Update</button>
         <button type='button' data-action="delete">Delete</button>
       </li>`
     )

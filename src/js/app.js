@@ -1,13 +1,16 @@
 import { getPlantsApi } from "./services/getPlantsAPI";
 import { createPlantsList } from "./markup/createPlantsList";
-import { openModal, closeModal } from "./modals/addPlantModal";
+import { openAddModal, closeAddModal } from "./modals/addPlantModal";
+import { closeUpdateModal } from "./modals/updatePlantModal";
 import { postPlantApi } from "./services/postPlantApi";
 import { deletePlantsApi } from "./services/deletePlantsAPI";
 getPlantsApi().then((plants) => {
   document.querySelector(".plants__list").innerHTML = createPlantsList(plants);
 });
-document.querySelector(".plants__btn").addEventListener("click", openModal);
-document.querySelector(".form__close").addEventListener("click", closeModal);
+document.querySelector(".plants__btn").addEventListener("click", openAddModal);
+document.querySelector(".form__close").addEventListener("click", closeAddModal);
+
+document.querySelector(".update-close").addEventListener("click", closeUpdateModal);
 
 document.querySelector("#list").addEventListener("click", (e) => {
   if (e.target.dataset.action === "delete") {
@@ -16,6 +19,12 @@ document.querySelector("#list").addEventListener("click", (e) => {
       document.querySelector(".plants__list").innerHTML =
         createPlantsList(plants);
     });
+  } else if (e.target.dataset.action === "update") {
+    document.querySelector(".backdrop-update").classList.remove("is-hidden");
+    console.log(e.target.closest(".plants__item").children[1])
+    document.getElementById("updateName").value = e.target.closest(".plants__item").firstElementChild.textContent;
+    document.getElementById("updateImage").value = e.target.closest(".plants__item").children[1].src;
+    document.getElementById("updatePrice").value = e.target.closest(".plants__item").children[2].textContent;
   }
 });
 

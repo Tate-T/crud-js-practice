@@ -3,14 +3,14 @@
     {
       "title": "Лілія",
       "image": "https://interflora.com.ua/img/400x487/51-068.png",
-      "price": "100",
+      "price": 100,
       "isFavorite": false,
       "id": "3972"
     },
     {
       "title": "Троянда",
       "image": "https://yaskravaklumba.com.ua/image/cache/catalog/rosa/chaino-gibridna/blekmedzhik12-500x500.jpg",
-      "price": 150,
+      "price": "150",
       "isFavorite": false,
       "id": "e097"
     },
@@ -36,17 +36,17 @@
       "id": "f627"
     },
     {
-      "id": "99e5",
-      "title": "nameeee",
-      "image": "https://images.prom.ua/2749191709_w600_h600_2749191709.jpg",
-      "price": "3456789",
+      "id": "32a6",
+      "title": "Ромашка",
+      "image": "https://flowry.ru/wp-content/uploads/2023/06/sorta-romashek.jpg",
+      "price": "210",
       "isFavorite": false
     },
     {
-      "id": "30ca",
-      "title": "name2",
-      "image": "https://images.prom.ua/2749191709_w600_h600_2749191709.jpg",
-      "price": "4444444",
+      "id": "6934",
+      "title": "Васильки",
+      "image": "https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcRjzlqCt9ERm4ZiSeM5luqLrJYEoC_3i11NqQ&s",
+      "price": "230",
       "isFavorite": false
     }
   ]
